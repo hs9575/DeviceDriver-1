@@ -4,10 +4,12 @@
 class DeviceDriver
 {
 public:
-    DeviceDriver(FlashMemoryDevice* hardware);
+    DeviceDriver(FMDAPI* hardware);
     int read(long address);
     void write(long address, int data);
 
 protected:
-    FlashMemoryDevice* m_hardware;
+    FMDAPI* m_hardware;
+
+    const int TotalReadTryCount = 5;
 };
